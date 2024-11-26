@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #app {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #444;
+}
+
+.main-container {
+    display: flex;
+    height: calc(100% - 60px);
+    transition: all 0.3s ease;
+}
+
+.module {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.module h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.module p {
+    font-size: 16px;
+}
+
+.left {
+    background-color: #f1f1f1;
+}
+
+.right {
+    background-color: #e0e0e0;
+}
+
+.module.active {
+    flex: 8;
+}
+
+.module.inactive {
+    flex: 2;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    .module {
+        margin-bottom: 20px;
+    }
+}
+
+#train_module_introduce,#rec_module_introduce{
+    transition: opacity 0.5s ease; /* 透明度变化动画 */
+    flex: 10;
+}
+
+#train_container,#rec_container{
+    width: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+#train_container.active{
+    width: 100%;
+}
+
+#rec_container.active{
+    width: 100%;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐与训练模块</title>
+    <!--    样式导入-->
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/element-ui.css">
+
+    <!--    导入vue-->
+    <script src="src/vue.js"></script>
+    <script src="src/element-ui.js"></script>
+</head>
+<body>
+<div id="app">
+    <header class="header">
+        <div class="logo">网站Logo</div>
+        <nav class="nav">
+            <a href="#" id="trainBtn">训练模块</a>
+            <a href="#" id="recommendBtn">推荐模块</a>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="module left" id="trainModule" @click="get_train">
+            <div id="train_module_introduce">
+                <h2>训练模块</h2>
+                <p>点击这里开始训练模型</p>
+            </div>
+            <div id="train_container">
+                <div class="card">
+                    <p>1</p>
+                </div>
+            </div>
+        </div>
+        <div class="module right" id="recommendModule" @click="get_rec">
+            <div id="rec_module_introduce">
+                <h2>推荐模块</h2>
+                <p>点击这里获取个性化推荐</p>
+            </div>
+            <div id="rec_container">
+                <div class="card">
+                    <p>1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="src/script.js"></script>
+</body>
+</html>
