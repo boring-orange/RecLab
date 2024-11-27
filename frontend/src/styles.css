@@ -110,3 +110,15 @@ html, body, #app {
 #rec_container.active{
     width: 100%;
 }
+
+.train_card{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.el-divider--vertical{
+    height: 80vh !important;
+    width: 2px !important;
+}

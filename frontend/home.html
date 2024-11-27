@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="src/element-ui.css">
 
     <!--    导入vue-->
+    <script src="src/jq.js"></script>
     <script src="src/vue.js"></script>
     <script src="src/element-ui.js"></script>
+
 </head>
 <body>
 <div id="app">
@@ -28,8 +30,47 @@
                 <p>点击这里开始训练模型</p>
             </div>
             <div id="train_container">
-                <div class="card">
-                    <p>1</p>
+                <div class="train_card">
+                    <div class="train_card_right">
+                        <el-form ref="form" :model="train_set" label-width="80px">
+                            <el-form-item label="学习率">
+                                <el-input v-model="train_set.lr"></el-input>
+                            </el-form-item>
+                            <el-form-item label="负样本携带">
+                                <el-input v-model="train_set.nn"></el-input>
+                            </el-form-item>
+                            <el-form-item label="批次">
+                                <el-input v-model="train_set.bs"></el-input>
+                            </el-form-item>
+                            <el-form-item label="显卡设置">
+                                <el-input v-model="train_set.cuda"></el-input>
+                            </el-form-item>
+                        </el-form>
+                    </div>
+                    <el-divider direction="vertical"></el-divider>
+                    <div class="train_card_left">
+                        <div class="train_card_left_top">
+                            <el-upload
+                                    class="upload-demo"
+                                    ref="upload"
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    :on-preview="handlePreview"
+                                    :on-remove="handleRemove"
+                                    :file-list="fileList"
+                                    :auto-upload="false">
+                                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+                                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">
+                                    上传到服务器
+                                </el-button>
+                                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                            </el-upload>
+                        </div>
+                        <el-divider></el-divider>
+                        <div class="train_card_left_bot">
+                            <el-progress type="circle" :percentage="100" status="success"></el-progress>
+                            <el-button @click="start_train">开始</el-button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

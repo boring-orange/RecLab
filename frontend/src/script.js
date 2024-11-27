@@ -49,6 +49,12 @@ new Vue({
     data() {
         return {
             show_train: false,
+            train_set: {
+                lr: '',
+                nn: '',
+                bs: '',
+                cuda: ''
+            }
         }
     },
     methods: {
@@ -59,6 +65,27 @@ new Vue({
         get_rec() {
             console.log("get_rec");
             toggleModule();
+        },
+        start_train() {
+            console.log(this.train_set);
+            let ajax_data = {
+                lr: this.train_set.lr,
+                bs: this.train_set.bs,
+                nn: this.train_set.nn,
+                cuda: this.train_set.cuda,
+            }
+            let ajax_this = this;
+                $.ajax({
+                    url: 'http://localhost:3389/train_start',
+                    type: 'Post',
+                    data: ajax_data,
+                    success: function (data) {
+                        console.log(data);
+
+                    },
+                    error: function () {
+                    }
+                })
         }
     },
     created() {
